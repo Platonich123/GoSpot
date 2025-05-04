@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoSpot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleG.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <div class="wrapper">
+        {% include 'header.html' %}
+        <main>
+            <div class="container">
+                <section class="hero">
+                    <div class="hero-background">
+                        <div class="hero-image-container">
+                            <div class="hero-image-wrapper">
+                                <a href="{{ url_for('windy') }}">
+                                    <img src="{{ url_for('static', filename='card/windy.webp') }}" alt="Hero Image 1" class="hero-image">
+                                    <div class="hero-content">
+                                        <h1>windy</h1>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="hero-image-wrapper">
+                                <a href="{{ url_for('events') }}">
+                                    <img src="{{ url_for('static', filename='card/угабуга.jpg') }}" alt="Hero Image 2" class="hero-image">
+                                    <div class="hero-content">
+                                        <h1>События</h1>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="hero-image-wrapper">
+                                <a href="{{ url_for('encyclopedia') }}">
+                                    <img src="{{ url_for('static', filename='card/энцикл.webp') }}" alt="Hero Image 3" class="hero-image">
+                                    <div class="hero-content">
+                                        <h1>Энциклопедия</h1>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="blue-text">Яхтинг, серфинг, плавание — на нашем сайте ты найдешь водный спорт себе по душе и узнаешь, где им можно заняться в твоем городе!</p>
+                </section>
+
+                <!-- Поисковая строка -->
+                <section class="search-bar">
+                    <div class="search-wrapper">
+                        <input type="text" class="search-input" placeholder="Поиск по локации, активности и т.д." id="search-input">
+                        <button class="search-button" id="search-button">Поиск</button>
+                    </div>
+                </section>
+
+                <!-- Фильтры и карта -->
+                <div class="filters-and-map">
+                    <section class="filters">
+                        <div class="filter-group">
+                            <h3>Группы спорта</h3>
+                            <div class="checkboxes-container">
+                                <label>
+                                    <input type="checkbox" name="filter" value="моторная тяга">
+                                    Моторная тяга
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="filter" value="яхта">
+                                    Яхта
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="filter" value="ветер">
+                                    Ветер
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="filter" value="весло">
+                                    Весло
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="filter" value="специальное оборудование">
+                                    Специальное оборудование
+                                </label>
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <h3>Местоположение</h3>
+                            <input type="text" placeholder="Москва">
+                        </div>
+                        <div class="filter-group">
+                            <h3>Удобства</h3>
+                            <label>
+                                <input type="checkbox" name="amenity" value="есть инвентарь">
+                                Есть инвентарь
+                            </label>
+                            <label>
+                                <input type="checkbox" name="amenity" value="Можно детям">
+                                Можно детям
+                            </label>
+                            <label>
+                                <input type="checkbox" name="amenity" value="инструктор">
+                                Инструктор
+                            </label>
+                        </div>
+                        <div class="filter-group">
+                            <h3>Инструктор</h3>
+                            <input type="text" placeholder="Введите имя инструктора">
+                        </div>
+                        <div class="filter-group">
+                            <h3>Школа/Секция</h3>
+                            <input type="text" placeholder="Введите название школы или секции">
+                        </div>
+                        <div class="filter-group">
+                            <h3>Ивенты</h3>
+                            <label>
+                                <input type="checkbox" name="event" value="регата">
+                                Регата
+                            </label>
+                            <label>
+                                <input type="checkbox" name="event" value="тренировка">
+                                Тренировка
+                            </label>
+                        </div>
+                        <div class="filter-group">
+                            <h3>Дата</h3>
+                            <input type="date">
+                        </div>
+                    </section>
+                    <section class="map-section">
+                        <div id="map" class="map-container"></div>
+                    </section>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <p>&copy; 2025 GoSpot. Все права защищены.</p>
+                    </div>
+                    <div class="footer-section mobile-app">
+                        <h3>Мобильное приложение</h3>
+                        <p>В приложении ещё удобнее искать споты и узнавать о новых мероприятиях! Скачайте его и добавьте GoSpot на главный экран своего устройства даже если нет интернета.</p>
+                        <div class="app-links">
+                            <a href="#"><img src="{{ url_for('static', filename='card/QR_code.jpg') }}" alt="QR Code"></a>
+                            <a href="#"><img src="{{ url_for('static', filename='card/play.jpg') }}" alt="Google Play"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Модальное окно входа -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>GoSpot</h2>
+            <h3>Вход</h3>
+            <form>
+                <input type="text" placeholder="Логин" required>
+                <input type="password" placeholder="Пароль" required>
+                <button type="submit">Войти</button>
+            </form>
+            <p>Нет аккаунта? <a href="#" id="register-link">Зарегистрируйтесь</a></p>
+        </div>
+    </div>
+
+    <!-- Модальное окно регистрации -->
+    <div id="register-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>GoSpot</h2>
+            <h3>Регистрация</h3>
+            <form>
+                <input type="text" placeholder="Логин" required>
+                <input type="password" placeholder="Пароль" required>
+                <input type="password" placeholder="Пароль еще раз" required>
+                <button type="submit">Регистрация</button>
+            </form>
+            <p>Вы зарегистрированы? <a href="#" id="login-link">Войдите</a></p>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script2.js') }}"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</body>
+</html>
