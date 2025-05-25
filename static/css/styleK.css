@@ -1,0 +1,610 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: white;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left img.logo {
+    max-height: 50px;
+    width: auto;
+}
+
+.main-menu ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.main-menu li {
+    margin: 0 15px;
+}
+
+.main-menu a {
+    color: black;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.main-menu a:hover {
+    color: #0056b3;
+}
+
+.header-right {
+    display: flex;
+    gap: 10px;
+}
+
+.header-right .button {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 60px;
+    margin-left: -50px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.header-right .button:hover {
+    background-color: #004494;
+}
+
+.intro-text {
+    background-color: white; 
+    text-align: center;  /
+}
+
+.intro-text h2 {
+    font-size: 30px;
+    color: #333;
+}
+.back-button {
+    position: absolute;
+    left: 1350px;
+    border:  solid 1px;
+    top: 7%;
+    transform: translateY(50%); /* Центрирует кнопку по вертикали */
+    background-color: #ffffff;
+    color: #333;
+    padding: 8px 15px;
+    font-size: 16px;
+    border: solid #007bff 1px;
+    border-radius: 25px;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: transparent;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.back-button:hover {
+    background-color: #ffffff;
+    color: #007bff;
+}
+
+
+main {
+    padding: 20px;
+    flex: 1;
+}
+
+.container {
+    max-width: 1400px;
+    width: 100%;
+    background-color: #ffffff;
+    margin-left: 500px;
+    display: flex;
+}
+
+.result-details {
+    width: 100%; /* Размер блока с результатами */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+    display: flex;
+    flex-direction: row; /* Блоки внутри расположены горизонтально */
+    justify-content: space-between; /* Разделяет контейнеры по сторонам */
+}
+
+.result-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+}
+.result-text {
+    width: 100%; /* Увеличиваем ширину блока для текста */
+    margin-right: -200px;
+    padding-left: 50px;
+    padding-right: 100px;
+
+}
+.blue-text {
+    color: #007bff; /* Синий цвет */
+}
+
+
+.image-container {
+    display: flex;
+    flex-direction: column; /* Маленькие картинки под большим */
+    width: 100%; /* Можно уменьшить или увеличить в зависимости от размера */
+    height: 500px;
+    
+}
+
+.small-images {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* Устанавливаем ширину на 100% от родительского контейнера */
+    margin-top: 20px; /* Добавляем отступ сверху */
+}
+
+.small-image {
+    width: 22%;  /* Размер маленьких изображений */
+    height: auto;
+    object-fit: cover;  /* Сохраняем пропорции изображений */
+    border-radius: 6px;
+}
+.result-image {
+    width: 100%;  /* Уменьшаем ширину изображения */
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-right: 100px;  /* Отступ между изображением и текстом */
+}
+
+
+.result-details h2 {
+    font-size: 20px;
+    width: 300px;
+    color: #333;
+    margin: 10px;
+}
+
+.result-details p {
+    font-size: 14px;
+    color: #777;
+    margin: 20px 0px 10px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: wrap;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.button {
+    margin-top: 5px;
+    padding: 5px 10px;
+    border: 1px solid;
+    border-radius: 25px;
+    font-size: 10px;
+    cursor: pointer;
+    background-color: transparent;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.button.green {
+    border-color: #07fa0f;
+    color: #07fa0f;
+}
+
+.button.pink {
+    border-color: #e91e63;
+    color: #e91e63;
+}
+
+.button.blue {
+    border-color: #2196f3;
+    color: #2196f3;
+}
+
+.button.purple {
+    border-color: #9c27b0;
+    color: #9c27b0;
+}
+
+.button.red {
+    border-color: #ff0000;
+    color: red;
+}
+
+.button.orange {
+    border-color: #ffa500;
+    color: orange;
+}
+
+.button.darkblue {
+    border-color: #0602ff;
+    color: #0602ff;
+}
+
+.button.salat {
+    border-color: #71ff89;
+    color: #71ff89;
+}
+
+.button.olive {
+    border-color: #808000;
+    color: #808000;
+}
+
+.button.gray {
+    border-color: #808080;
+    color: #808080;
+}
+
+.button:hover {
+    transform: scale(1.05);
+}
+
+.button.green:hover {
+    background-color: #07fa0f;
+    color: white;
+}
+
+.button.pink:hover {
+    background-color: #e91e63;
+    color: white;
+}
+
+.button.blue:hover {
+    background-color: #2196f3;
+    color: white;
+}
+
+.button.purple:hover {
+    background-color: #9c27b0;
+    color: white;
+}
+
+.button.red:hover {
+    background-color: red;
+    color: white;
+}
+
+.button.orange:hover {
+    background-color: orange;
+    color: white;
+}
+
+.button.darkblue:hover {
+    background-color: #0602ff;
+    color: white;
+}
+
+.button.salat:hover {
+    background-color: #71ff89;
+    color: white;
+}
+
+.button.olive:hover {
+    background-color: #808000;
+    color: white;
+}
+
+.button.gray:hover {
+    background-color: #808080;
+    color: white;
+}
+.button-container3knopki {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: raw;
+    align-items: center;
+    gap: 8px; /* Меньший отступ между кнопками */
+    
+}
+
+.custom-button {
+    padding: 10px 20px; /* Уменьшены отступы */
+    font-size: 12px; /* Уменьшен шрифт */
+    color: white;
+    background-color: #007BFF; /* Основной цвет фона */
+    background-size: cover;
+    background-position: center;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    gap: 20px;
+    transition: transform 0.2s, background-color 0.2s;
+    width: 200px; /* ширина */
+    height: 50px; /* высота */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-size: cover; /* Сохраняет пропорции изображения */
+    background-position: bottom; /* Центрирует изображение внутри кнопки */
+    /* Устанавливаем z-index для самой кнопки */
+}
+
+/* Добавление синего оттенка сверху изображения */
+.custom-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 123, 255, 0.4); /* Полупрозрачный синий оттенок */
+    transition: opacity 0.2s;
+}
+
+.custom-button:hover::before {
+    opacity: 0;
+}
+
+.custom-button span {
+    position: relative;
+    z-index: 3; /* Текст на переднем плане */
+}
+
+.custom-button:hover {
+    transform: scale(1.05);
+    background-color: #0056b3; /* Темнее основного цвета фона при наведении */
+}
+.instructions {
+    margin-top: 20px;
+}
+.instructors-container {
+    display: flex;
+    flex-wrap: wrap;             /* Размещаем кнопки в ряд */
+    gap: 10px;                 /* Отступ между кнопками */
+    margin-top: 10px;          /* Отступ сверху */
+    justify-content: flex-start; /* Размещение кнопок с отступом от начала */
+}
+.button-containermnogo{
+    margin-top: 5px;
+    padding: 5px 10px;
+    border: 0px solid;
+    border-radius: 25px;
+    font-size: 12px;
+    cursor: pointer;
+    background-color: transparent;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.button.blueinst {
+    border-color: #2196f3;
+    color: #2196f3;
+}
+.button.blueinst:hover{
+    background-color: #2196f3;
+    color: white;
+}
+
+.blue-text {
+    margin-right: 10px; /* Добавляем небольшой отступ между текстом и кнопками */
+    font-weight: bold;
+}
+
+.instructors-container .button {
+    padding: 5px 15px;     /* Отступы внутри кнопки */
+    font-size: 14px;        /* Размер шрифта */
+    border-radius: 25px;    /* Скругленные углы */
+    cursor: pointer;
+    color: black;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.instructors-container .button:hover {
+    transform: scale(1.05); /* Увеличиваем кнопку при наведении */
+}
+
+.description {
+    margin-top: 20px;
+}
+
+.additional-info {
+    margin-top: 20px;
+}
+
+.additional-info p {
+    margin-bottom: 5px;
+}
+
+.available {
+    color: green;
+}
+
+.not-available {
+    color: red;
+}
+
+/* Контейнер для всех отзывов */
+.review-item {
+    background-color: #ffffff; /* Цвет фона для отзыва */
+    border: 1px solid #007bff; /* Светлая рамка вокруг отзыва */
+    padding: 10px; /* Отступы внутри блока */
+    margin-top: 10px; /* Отступ сверху между отзывами */
+    border-radius: 6px; /* Закругленные углы рамки */
+    width: 100%; /* Занимает всю ширину блока */
+}
+
+.review-item p {
+    margin: 0; /* Убираем отступы у текста */
+    font-size: 14px; /* Размер шрифта отзыва */
+}
+
+  
+
+.map-section {
+    width: 30%;
+    margin-left: 20px;
+}
+
+.map-container {
+    width: 100%;
+    height: 500px;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+}
+
+footer p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #0056b3;
+}
+
+/* Для больших экранов */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 730px;
+        width: 70%;
+    }
+    .header-left img.logo {
+        max-height: 70px; /* Максимальная высота изображения */
+        width: auto; /* Ширина будет автоматически подстраиваться */
+        height: auto;
+        margin-left: -400px;
+    }
+    
+    .main-menu ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-right: -100px;
+        margin-left: -350px;
+    }
+    
+    .main-menu li {
+        margin: 0 15px;
+    }
+    
+    .main-menu a {
+        color: black;
+        text-decoration: none;
+        font-size: 18px;
+    }
+    
+    .main-menu a:hover {
+        color: #0056b3;
+    }
+    
+    .header-right {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 10px;
+        margin-right:100px;
+
+    }
+    
+    .header-right .button {
+        background-color: #0056b3;
+        color: white;
+        margin-top: -initial;
+        border: none;
+        padding: 10px 20px;
+        margin-left: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+    
+    .back-button {
+        position: absolute;
+        left: 1000px;
+        border:  solid 1px;
+        top: 12%;
+        transform: translateY(50%); /* Центрирует кнопку по вертикали */
+        background-color: #ffffff;
+        color: #333;
+        padding: 6px 14px;
+        font-size: 14px;
+        border: solid #007bff 1px;
+        border-radius: 25px;
+        text-decoration: none;
+        cursor: pointer;
+        background-color: transparent;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+    
+    
+    .result-details {
+        width: 100%; /* Размер блока с результатами */
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        border: 2px solid #ffffff;
+        display: flex;
+        flex-direction: row; /* Блоки внутри расположены горизонтально */
+        justify-content: space-between; /* Разделяет контейнеры по сторонам */
+        margin-left: -400px;
+    }
+    
+    .result-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        width: 95%;
+    }
+    .result-text {
+        width: 100%; /* Увеличиваем ширину блока для текста */
+        margin-right: -450px;
+
+    
+    }
+    .blue-text {
+        color: #007bff; /* Синий цвет */
+    }
+    
+    
+    .image-container {
+        display: flex;
+        flex-direction: column; /* Маленькие картинки под большим */
+        width: 100%; /* Можно уменьшить или увеличить в зависимости от размера */
+        height: 500px;
+        
+    }    
+}

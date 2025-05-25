@@ -5,14 +5,28 @@ from models import db, User, Station, Place, Event, Trainer, Article
 from sqlalchemy import text
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
+import logging
+
+# Настройка логирования
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # Загрузка переменных окружения
 load_dotenv()
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.urandom(24)  # Для сессий
+
+# Конфигурация приложения
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', os.urandom(24))
 app.config['SQLALCHEMY_DATABASE_URI'] = f"postgresql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}:{os.getenv('DB_PORT')}/{os.getenv('DB_NAME')}?client_encoding=utf8"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+# Настройка для продакшена
+if os.getenv('FLASK_ENV') == 'production':
+    app.config['DEBUG'] = False
+    app.config['TESTING'] = False
+else:
+    app.config['DEBUG'] = True
 
 # Инициализация базы данных
 db.init_app(app)
@@ -363,6 +377,16 @@ def check_auth():
             }
         })
     return jsonify({'status': 'error', 'message': 'Пользователь не авторизован'}), 401
+
+# Обработчик ошибок
+@app.errorhandler(404)
+def not_found_error(error):
+    return render_template('404.html'), 404
+
+@app.errorhandler(500)
+def internal_error(error):
+    db.session.rollback()
+    return render_template('500.html'), 500
 
 if __name__ == '__main__':
     app.run(debug=True) 
